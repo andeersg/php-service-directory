@@ -1,4 +1,5 @@
 # National Service Directory (Nasjonal tjenestekatalog)
+[![Packagist](https://img.shields.io/packagist/v/andeersg/tjenestekatalog.svg?maxAge=3600)](https://packagist.org/packages/andeersg/tjenestekatalog)
 
 This package provides a easy way of communicating with the API from [Nasjonaltjenestekatalog.no](http://www.nasjonaltjenestekatalog.no).
 
