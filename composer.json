@@ -1,0 +1,24 @@
+{
+  "name": "andeersg/php-service-catalogue",
+  "description": "Communicate with Kommuneforlaget Tjenestekatalog",
+  "type": "library",
+  "scripts": {
+    "test": "phpcs --standard=PSR2 -p -n ./src"
+  },
+  "require": {
+    "php": "^5.4",
+    "ext-soap ": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "authors": [
+    {
+      "name": "Anders Grendstadbakk",
+      "email": "anders.2205@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "ServiceCatalogue\\": "src" }
+  }
+}
