@@ -20,6 +20,6 @@
   ],
   "license": "MIT",
   "autoload": {
-    "psr-4": { "ServiceCatalogue\\": "src" }
+    "psr-4": { "ServiceDirectory\\": "src" }
   }
 }

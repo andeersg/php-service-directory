@@ -1,11 +1,11 @@
 <?php
 
-namespace ServiceCatalogue;
+namespace ServiceDirectory;
 
 /**
- * Class ServiceCatalogue.
+ * Class ServiceDirectory.
  */
-class ServiceCatalogue
+class ServiceDirectory
 {
 
     /**
@@ -29,7 +29,7 @@ class ServiceCatalogue
     protected $apiUrl = 'http://www.nasjonaltjenestekatalog.no/ws7/katalog?WSDL';
 
     /**
-     * ServiceCatalogue constructor.
+     * ServiceDirectory constructor.
      *
      * @param string $username
      * @param string $password
