@@ -5,3 +5,6 @@ This package provides a easy way of communicating with the API from [Nasjonaltje
 
 ## Description in Norwegian
 >Nasjonal tjenestekatalog (NTK) er en sentral database som inneholder beskrivelser av de tjenestene som kommunen yter overfor sine innbyggere.
+
+## References
+[Tjenestekatalog WSDL](http://www.nasjonaltjenestekatalog.no/ws7/katalog?wsdl)
