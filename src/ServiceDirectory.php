@@ -24,6 +24,11 @@ class ServiceDirectory
     protected $soapClient;
 
     /**
+     * @var bool
+     */
+    protected $isAuthenticated = false;
+
+    /**
      * @var string
      */
     protected $apiUrl = 'http://www.nasjonaltjenestekatalog.no/ws7/katalog?WSDL';
@@ -46,6 +51,11 @@ class ServiceDirectory
     {
         $this->username = $username;
         $this->password = $password;
+
+        $status = $this->authenticate();
+        if ($status) {
+            $this->isAuthenticated = true;
+        }
     }
 
     /**
