@@ -11,12 +11,12 @@ class ServiceDirectory
     /**
      * @var string
      */
-    protected $username;
+    protected $username = false;
 
     /**
      * @var string
      */
-    protected $password;
+    protected $password = false;
 
     /**
      * @var SoapClient
@@ -30,15 +30,22 @@ class ServiceDirectory
 
     /**
      * ServiceDirectory constructor.
+     */
+    public function __construct()
+    {
+         $this->soapClient = new \SoapClient($this->apiUrl, array("trace" => 1, "exception" => 0));
+    }
+
+    /**
+     * Set credentials.
      *
      * @param string $username
      * @param string $password
      */
-    public function __construct($username, $password)
+    public function setCredentials($username, $password)
     {
-         $this->username = $username;
-         $this->password = $password;
-         $this->soapClient = new \SoapClient($this->apiUrl, array("trace" => 1, "exception" => 0));
+        $this->username = $username;
+        $this->password = $password;
     }
 
     /**
