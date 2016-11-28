@@ -6,7 +6,7 @@
     "test": "phpcs --standard=PSR2 -p -n ./src"
   },
   "require": {
-    "php": "^5.4",
+    "php": "^5.4 || ^7.0",
     "ext-soap": "*"
   },
   "require-dev": {
