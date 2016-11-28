@@ -1,6 +1,6 @@
 <?php
 
-namespace ServiceDirectory;
+namespace TjenesteKatalog;
 
 /**
  * Class ServiceDirectory.
