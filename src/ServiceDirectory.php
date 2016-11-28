@@ -163,14 +163,49 @@ class ServiceDirectory
     }
 
     /**
+     * Fetch text based on text.
+     *
+     * @param string $key
+     */
+    public function getText($key)
+    {
+        $text = $this->request('hentLostekst', [
+            'arg0' => $key,
+        ]);
+        return $text;
+    }
+
+    /**
+     * Fetch text based on text.
+     *
+     * @param string $since
+     */
+    public function getChangedTexts($since)
+    {
+        $texts = $this->request('hentEndredeLostekster', [
+            'arg0' => $since,
+        ]);
+        return $texts;
+    }
+
+    /**
+     * Fetch text based on text.
+     *
+     * @param string $key
+     */
+    public function getPhrases($key)
+    {
+        $texts = $this->request('fraser', [
+            'arg0' => $key,
+        ]);
+        return $texts;
+    }
+
+    /**
      * Print available methods.
      */
     public function debug()
     {
         echo '<pre>' . print_r($this->soapClient->__getFunctions(), true) . '</pre>';
     }
-
-    /**
-     * Methods not implementet yet: hentLostekst, hentEndredeLostekster, fraser.
-     */
 }
