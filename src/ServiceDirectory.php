@@ -102,23 +102,62 @@ class ServiceDirectory
      *
      * @param array $tjenestebeskrivelse_id
      */
-    public function getServiceDescription($tjenestebeskrivelse_id)
+    public function getServiceDescription(array $service_description_id)
     {
         $description = $this->request('hentTjenestebeskrivelser', [
-          'arg0' => $tjenestebeskrivelse_id,
+          'arg0' => $service_description_id,
         ]);
         return $description;
     }
 
     /**
-     * Fetch all service descriptions.
+     * Fetch all overview.
+     *
+     * @param string $since
+     */
+    public function getOverview($since)
+    {
+        $descriptions = $this->request('hentOversikt');
+        return $descriptions;
+    }
+
+    /**
+     * Get overview of changes since date.
+     *
+     * @param string $since
+     */
+    public function getOverviewChanges($since)
+    {
+        $descriptions = $this->request('hentOversiktEndringer', [
+          'arg0' => $since,
+        ]);
+        return $descriptions;
+    }
+
+    /**
+     * Fetch all changes since date..
      *
      * @param string $since
      */
     public function getChanges($since)
     {
-        $descriptions = $this->request('hentOversiktEndringer', [
+        $descriptions = $this->request('hentEndringer', [
           'arg0' => $since,
+        ]);
+        return $descriptions;
+    }
+
+    /**
+     * Get changes for a single service.
+     *
+     * @param array $service_description_id
+     * @param string $since
+     */
+    public function getChanged(array $service_description_id, $since)
+    {
+        $descriptions = $this->request('hentEndret', [
+            'arg0' => $service_description_id,
+            'arg1' => $since,
         ]);
         return $descriptions;
     }
@@ -130,4 +169,8 @@ class ServiceDirectory
     {
         echo '<pre>' . print_r($this->soapClient->__getFunctions(), true) . '</pre>';
     }
+
+    /**
+     * Methods not implementet yet: hentLostekst, hentEndredeLostekster, fraser.
+     */
 }
