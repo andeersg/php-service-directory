@@ -1,6 +1,6 @@
 <?php
 
-namespace TjenesteKatalog;
+namespace andeersg\TjenesteKatalog;
 
 /**
  * Class ServiceDirectory.
@@ -93,8 +93,12 @@ class ServiceDirectory
      */
     public function getAllServiceDescriptions()
     {
-        $descriptions = $this->request('hentAlleTjenestebeskrivelser');
-        return $descriptions;
+        $output = [];
+        $services = $this->request('hentAlleTjenestebeskrivelser');
+        foreach ($services as $service) {
+            $output[] = new Service($service);
+        }
+        return $output;
     }
 
     /**
