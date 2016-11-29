@@ -93,6 +93,8 @@ class ServiceDirectory
 
     /**
      * Fetch all service descriptions.
+     *
+     * @return Service[]
      */
     public function getAllServiceDescriptions()
     {
