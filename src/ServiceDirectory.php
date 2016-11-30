@@ -46,6 +46,7 @@ class ServiceDirectory
      *
      * @param string $username
      * @param string $password
+     * @return ServiceDirectory
      */
     public function setCredentials($username, $password)
     {
@@ -56,6 +57,8 @@ class ServiceDirectory
         if ($status) {
             $this->isAuthenticated = true;
         }
+
+        return $this;
     }
 
     /**

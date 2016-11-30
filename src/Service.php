@@ -735,7 +735,7 @@ class Service
     public function get($key)
     {
         if (!property_exists($this, $key)) {
-            throw new \Exception('Unknown Service property: ' . $key);
+            throw new \InvalidArgumentException('Unknown Service property: ' . $key);
         }
         return $this->{$key};
     }
@@ -746,7 +746,7 @@ class Service
     public function set($key)
     {
         if (!property_exists($this, $key)) {
-            throw new \Exception('Unknown Service property: ' . $key);
+            throw new \InvalidArgumentException('Unknown Service property: ' . $key);
         }
         return $this->{$key};
     }
