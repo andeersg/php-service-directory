@@ -90,15 +90,21 @@ class ServiceDirectory
 
     /**
      * Fetch all service descriptions.
+     *
+     * @return array Array of Service or empty array if nothing is found.
      */
     public function getAllServiceDescriptions()
     {
         $output = [];
         $services = $this->request('hentAlleTjenestebeskrivelser');
-        foreach ($services as $service) {
-            $output[] = new Service($service);
+        if ($services) {
+            foreach ($services as $service) {
+                $output[] = new Service($service);
+            }
+            return $output;
+        } else {
+            return [];
         }
-        return $output;
     }
 
     /**
@@ -142,13 +148,21 @@ class ServiceDirectory
      * Fetch all changes since date..
      *
      * @param string $since
+     * @return array Array of Service or empty array if nothing is found.
      */
     public function getChanges($since)
     {
-        $descriptions = $this->request('hentEndringer', [
+        $services = $this->request('hentEndringer', [
           'arg0' => $since,
         ]);
-        return $descriptions;
+        if ($services) {
+            foreach ($services as $service) {
+                $output[] = new Service($service);
+            }
+            return $output;
+        } else {
+            return [];
+        }
     }
 
     /**

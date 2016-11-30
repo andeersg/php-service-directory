@@ -750,16 +750,4 @@ class Service
         }
         return $this->{$key};
     }
-
-    /**
-     * Output all methods as array.
-     */
-    public function toArray()
-    {
-        $output = [];
-        foreach ($this as $key => $value) {
-            $output[$key] = $value;
-        }
-        return $output;
-    }
 }
