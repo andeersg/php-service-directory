@@ -2,6 +2,9 @@
 
 namespace andeersg\TjenesteKatalog;
 
+use andeersg\TjenesteKatalog\Exceptions\Exception;
+use andeersg\TjenesteKatalog\Exceptions\ConnectionException;
+
 /**
  * Class ServiceDirectory.
  */
@@ -38,7 +41,11 @@ class ServiceDirectory
      */
     public function __construct()
     {
-         $this->soapClient = new \SoapClient($this->apiUrl, array("trace" => 1, "exception" => 0));
+        try {
+            $this->soapClient = new \SoapClient($this->apiUrl, array("trace" => 1, "exception" => 0));
+        } catch (\SoapFault $e) {
+            throw new ConnectionException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -69,7 +76,11 @@ class ServiceDirectory
      */
     private function request($method, $arguments = array())
     {
-        $data = $this->soapClient->__soapCall($method, array('parameters' => $arguments));
+        try {
+            $data = $this->soapClient->__soapCall($method, array('parameters' => $arguments));
+        } catch (\SoapFault $e) {
+            throw new Exception($e->getMessage(), $e->getCode(), $e);
+        }
 
         if (isset($data->return)) {
             return $data->return;
